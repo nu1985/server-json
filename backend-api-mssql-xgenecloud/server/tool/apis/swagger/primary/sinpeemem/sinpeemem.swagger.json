@@ -1,0 +1,694 @@
+{
+  "tags": [{
+    "name": "sinpeemem",
+    "description": "Everything about your sinpeemem"
+  }],
+  "paths": {
+    "/api/v1/sinpeemem": {
+      "post": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Add a new sinpeemem",
+        "description": "",
+        "operationId": "addsinpeemem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "sinpeemem object that needs to add",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/sinpeemem"
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Get list",
+        "description": "",
+        "operationId": "getsinpeemem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/{sinpeememId}": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Find sinpeemem by ID",
+        "description": "Returns a single sinpeemem",
+        "operationId": "getsinpeememById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "sinpeememId",
+          "in": "path",
+          "description": "ID of sinpeemem to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "sinpeemem not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Updates a sinpeemem",
+        "description": "",
+        "operationId": "updatesinpeemem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "sinpeememId",
+            "in": "path",
+            "description": "ID of sinpeemem to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "sinpeemem object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Deletes a sinpeemem",
+        "description": "",
+        "operationId": "deletesinpeemem",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "sinpeememId",
+          "in": "path",
+          "description": "ID of sinpeemem to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "sinpeemem not found"
+          }
+        }
+      }
+    },
+
+
+    "/api/v1/sinpeemem/bulk": {
+      "post": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Bulk sinpeemem insert",
+        "description": "",
+        "operationId": "bulksinpeememInsert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "sinpeemem objects",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Updates a sinpeemem",
+        "description": "",
+        "operationId": "updatesinpeemem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "sinpeemem objects with id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Deletes a sinpeemem",
+        "description": "",
+        "operationId": "deletesinpeemem",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "sinpeemem objects contains id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "sinpeemem not found"
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/findOne": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "findOnesinpeemem",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/{sinpeememId}/exists": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Check sinpeemem with provided ID exists",
+        "description": "Returns a single sinpeemem",
+        "operationId": "checksinpeememExists",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "sinpeememId",
+          "in": "path",
+          "description": "ID of sinpeemem",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/count": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Get sinpeemem count",
+        "operationId": "getsinpeememCount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "query",
+          "name": "where",
+          "type": "String",
+          "description": "Where expression"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/groupby/{columnName}": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Group by column",
+        "description": "",
+        "operationId": "sinpeememGroupByColumn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/distribution/{columnName}": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "",
+        "description": "",
+        "operationId": "sinpeememDistribution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "path",
+          "name": "columnName",
+          "type": "String",
+          "description": "Column name"
+        }, {
+          "in": "query",
+          "name": "min",
+          "description": "min value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "max",
+          "description": "max value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "step",
+          "description": "step value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "steps",
+          "description": "steps value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "func",
+          "description": "comma separated aggregation functions",
+          "type": "string"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/distinct/{columnName}": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "sinpeememDistinct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/sinpeemem/aggregate/{columnName}": {
+      "get": {
+        "tags": [
+          "sinpeemem"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "sinpeememAggregate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "fields",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "func",
+            "type": "String",
+            "description": "Comma seperated aggregate functions"
+          },
+          {
+            "in": "query",
+            "name": "having",
+            "type": "String",
+            "description": "Having expression"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/sinpeemem"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "sinpeemem": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "nullable": false
+        },
+        "member_id": {
+          "type": "integer"
+        },
+        "money_before": {
+          "type": "integer"
+        },
+        "year_rec": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

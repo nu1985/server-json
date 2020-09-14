@@ -1,0 +1,697 @@
+{
+  "tags": [{
+    "name": "numdead_up",
+    "description": "Everything about your numdead_up"
+  }],
+  "paths": {
+    "/api/v1/numdead_up": {
+      "post": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Add a new numdead_up",
+        "description": "",
+        "operationId": "addnumdead_up",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "numdead_up object that needs to add",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/numdead_up"
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Get list",
+        "description": "",
+        "operationId": "getnumdead_up",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/{numdead_upId}": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Find numdead_up by ID",
+        "description": "Returns a single numdead_up",
+        "operationId": "getnumdead_upById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "numdead_upId",
+          "in": "path",
+          "description": "ID of numdead_up to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "numdead_up not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Updates a numdead_up",
+        "description": "",
+        "operationId": "updatenumdead_up",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "numdead_upId",
+            "in": "path",
+            "description": "ID of numdead_up to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "numdead_up object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Deletes a numdead_up",
+        "description": "",
+        "operationId": "deletenumdead_up",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "numdead_upId",
+          "in": "path",
+          "description": "ID of numdead_up to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "numdead_up not found"
+          }
+        }
+      }
+    },
+
+
+    "/api/v1/numdead_up/bulk": {
+      "post": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Bulk numdead_up insert",
+        "description": "",
+        "operationId": "bulknumdead_upInsert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "numdead_up objects",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Updates a numdead_up",
+        "description": "",
+        "operationId": "updatenumdead_up",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "numdead_up objects with id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Deletes a numdead_up",
+        "description": "",
+        "operationId": "deletenumdead_up",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "numdead_up objects contains id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "numdead_up not found"
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/findOne": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "findOnenumdead_up",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/{numdead_upId}/exists": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Check numdead_up with provided ID exists",
+        "description": "Returns a single numdead_up",
+        "operationId": "checknumdead_upExists",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "numdead_upId",
+          "in": "path",
+          "description": "ID of numdead_up",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/count": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Get numdead_up count",
+        "operationId": "getnumdead_upCount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "query",
+          "name": "where",
+          "type": "String",
+          "description": "Where expression"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/groupby/{columnName}": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Group by column",
+        "description": "",
+        "operationId": "numdead_upGroupByColumn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/distribution/{columnName}": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "",
+        "description": "",
+        "operationId": "numdead_upDistribution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "path",
+          "name": "columnName",
+          "type": "String",
+          "description": "Column name"
+        }, {
+          "in": "query",
+          "name": "min",
+          "description": "min value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "max",
+          "description": "max value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "step",
+          "description": "step value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "steps",
+          "description": "steps value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "func",
+          "description": "comma separated aggregation functions",
+          "type": "string"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/distinct/{columnName}": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "numdead_upDistinct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/numdead_up/aggregate/{columnName}": {
+      "get": {
+        "tags": [
+          "numdead_up"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "numdead_upAggregate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "fields",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "func",
+            "type": "String",
+            "description": "Comma seperated aggregate functions"
+          },
+          {
+            "in": "query",
+            "name": "having",
+            "type": "String",
+            "description": "Having expression"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/numdead_up"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "numdead_up": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "nullable": false
+        },
+        "numdead_up": {
+          "type": "integer"
+        },
+        "numdead_up2": {
+          "type": "integer"
+        },
+        "numD_up": {
+          "type": "integer"
+        },
+        "yearsD_up": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

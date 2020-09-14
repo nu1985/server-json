@@ -1,0 +1,770 @@
+{
+  "tags": [{
+    "name": "yearsrecord",
+    "description": "Everything about your yearsrecord"
+  }],
+  "paths": {
+    "/api/v1/yearsrecord": {
+      "post": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Add a new yearsrecord",
+        "description": "",
+        "operationId": "addyearsrecord",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "yearsrecord object that needs to add",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/yearsrecord"
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Get list",
+        "description": "",
+        "operationId": "getyearsrecord",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/{yearsrecordId}": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Find yearsrecord by ID",
+        "description": "Returns a single yearsrecord",
+        "operationId": "getyearsrecordById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "yearsrecordId",
+          "in": "path",
+          "description": "ID of yearsrecord to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "yearsrecord not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Updates a yearsrecord",
+        "description": "",
+        "operationId": "updateyearsrecord",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "yearsrecordId",
+            "in": "path",
+            "description": "ID of yearsrecord to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "yearsrecord object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Deletes a yearsrecord",
+        "description": "",
+        "operationId": "deleteyearsrecord",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "yearsrecordId",
+          "in": "path",
+          "description": "ID of yearsrecord to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "yearsrecord not found"
+          }
+        }
+      }
+    },
+
+
+    "/api/v1/yearsrecord/bulk": {
+      "post": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Bulk yearsrecord insert",
+        "description": "",
+        "operationId": "bulkyearsrecordInsert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "yearsrecord objects",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Updates a yearsrecord",
+        "description": "",
+        "operationId": "updateyearsrecord",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "yearsrecord objects with id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Deletes a yearsrecord",
+        "description": "",
+        "operationId": "deleteyearsrecord",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "yearsrecord objects contains id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "yearsrecord not found"
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/findOne": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "findOneyearsrecord",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/{yearsrecordId}/exists": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Check yearsrecord with provided ID exists",
+        "description": "Returns a single yearsrecord",
+        "operationId": "checkyearsrecordExists",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "yearsrecordId",
+          "in": "path",
+          "description": "ID of yearsrecord",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/count": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Get yearsrecord count",
+        "operationId": "getyearsrecordCount",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "query",
+          "name": "where",
+          "type": "String",
+          "description": "Where expression"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/groupby/{columnName}": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Group by column",
+        "description": "",
+        "operationId": "yearsrecordGroupByColumn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/distribution/{columnName}": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "",
+        "description": "",
+        "operationId": "yearsrecordDistribution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "path",
+          "name": "columnName",
+          "type": "String",
+          "description": "Column name"
+        }, {
+          "in": "query",
+          "name": "min",
+          "description": "min value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "max",
+          "description": "max value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "step",
+          "description": "step value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "steps",
+          "description": "steps value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "func",
+          "description": "comma separated aggregation functions",
+          "type": "string"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/distinct/{columnName}": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "yearsrecordDistinct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/yearsrecord/aggregate/{columnName}": {
+      "get": {
+        "tags": [
+          "yearsrecord"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "yearsrecordAggregate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "fields",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "func",
+            "type": "String",
+            "description": "Comma seperated aggregate functions"
+          },
+          {
+            "in": "query",
+            "name": "having",
+            "type": "String",
+            "description": "Having expression"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/yearsrecord"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "yearsrecord": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "nullable": false
+        },
+        "years": {
+          "type": "string"
+        },
+        "money_pay4years": {
+          "type": "number",
+          "format": "float"
+        },
+        "money_rubyears": {
+          "type": "number",
+          "format": "float"
+        },
+        "money_rubyearsnew": {
+          "type": "number",
+          "format": "float"
+        },
+        "money_rubyearsOldPlus": {
+          "type": "number",
+          "format": "float"
+        },
+        "money_rubyearsOld": {
+          "type": "number",
+          "format": "float"
+        },
+        "nee": {
+          "type": "number",
+          "format": "float"
+        },
+        "mon": {
+          "type": "number",
+          "format": "float"
+        },
+        "Bank1": {
+          "type": "number",
+          "format": "float"
+        },
+        "Bank2": {
+          "type": "number",
+          "format": "float"
+        },
+        "Bank3": {
+          "type": "number",
+          "format": "float"
+        },
+        "Bank4": {
+          "type": "number",
+          "format": "float"
+        },
+        "office1": {
+          "type": "number",
+          "format": "float"
+        },
+        "office": {
+          "type": "number",
+          "format": "float"
+        },
+        "building": {
+          "type": "number",
+          "format": "float"
+        },
+        "land": {
+          "type": "number",
+          "format": "float"
+        },
+        "luknee": {
+          "type": "number",
+          "format": "float"
+        },
+        "sitti": {
+          "type": "number",
+          "format": "float"
+        },
+        "sasom": {
+          "type": "number",
+          "format": "float"
+        },
+        "prakun": {
+          "type": "number",
+          "format": "float"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "adminname": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

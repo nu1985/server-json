@@ -1,0 +1,691 @@
+{
+  "tags": [{
+    "name": "cause1",
+    "description": "Everything about your cause1"
+  }],
+  "paths": {
+    "/api/v1/cause1": {
+      "post": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Add a new cause1",
+        "description": "",
+        "operationId": "addcause1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "cause1 object that needs to add",
+          "required": true,
+          "schema": {
+            "$ref": "#/definitions/cause1"
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Get list",
+        "description": "",
+        "operationId": "getcause1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/{cause1Id}": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Find cause1 by ID",
+        "description": "Returns a single cause1",
+        "operationId": "getcause1ById",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "cause1Id",
+          "in": "path",
+          "description": "ID of cause1 to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/cause1"
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "cause1 not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Updates a cause1",
+        "description": "",
+        "operationId": "updatecause1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "name": "cause1Id",
+            "in": "path",
+            "description": "ID of cause1 to return",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "cause1 object that needs to be added to the store",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Deletes a cause1",
+        "description": "",
+        "operationId": "deletecause1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "cause1Id",
+          "in": "path",
+          "description": "ID of cause1 to return",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "cause1 not found"
+          }
+        }
+      }
+    },
+
+
+    "/api/v1/cause1/bulk": {
+      "post": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Bulk cause1 insert",
+        "description": "",
+        "operationId": "bulkcause1Insert",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "cause1 objects",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Updates a cause1",
+        "description": "",
+        "operationId": "updatecause1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "cause1 objects with id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Deletes a cause1",
+        "description": "",
+        "operationId": "deletecause1",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "body",
+          "name": "body",
+          "description": "cause1 objects contains id",
+          "required": true,
+          "schema": {
+            "type": "array",
+            "items": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        }],
+        "responses": {
+          "400": {
+            "description": "Invalid ID supplied"
+          },
+          "404": {
+            "description": "cause1 not found"
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/findOne": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "findOnecause1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/{cause1Id}/exists": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Check cause1 with provided ID exists",
+        "description": "Returns a single cause1",
+        "operationId": "checkcause1Exists",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "name": "cause1Id",
+          "in": "path",
+          "description": "ID of cause1",
+          "required": true,
+          "type": "integer",
+          "format": "int64"
+        }],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/count": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Get cause1 count",
+        "operationId": "getcause1Count",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "query",
+          "name": "where",
+          "type": "String",
+          "description": "Where expression"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/groupby/{columnName}": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Group by column",
+        "description": "",
+        "operationId": "cause1GroupByColumn",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/distribution/{columnName}": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "",
+        "description": "",
+        "operationId": "cause1Distribution",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+          "in": "path",
+          "name": "columnName",
+          "type": "String",
+          "description": "Column name"
+        }, {
+          "in": "query",
+          "name": "min",
+          "description": "min value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "max",
+          "description": "max value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "step",
+          "description": "step value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "steps",
+          "description": "steps value",
+          "type": "integer",
+          "format": "int64"
+        }, {
+          "in": "query",
+          "name": "func",
+          "description": "comma separated aggregation functions",
+          "type": "string"
+        }],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/distinct/{columnName}": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "cause1Distinct",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "query",
+            "name": "where",
+            "type": "String",
+            "description": "Where expression"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fieldst",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/cause1/aggregate/{columnName}": {
+      "get": {
+        "tags": [
+          "cause1"
+        ],
+        "summary": "Get first one from filtered data",
+        "description": "",
+        "operationId": "cause1Aggregate",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [{
+            "in": "path",
+            "name": "columnName",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "fields",
+            "type": "String",
+            "description": "Column name"
+          },
+          {
+            "in": "path",
+            "name": "func",
+            "type": "String",
+            "description": "Comma seperated aggregate functions"
+          },
+          {
+            "in": "query",
+            "name": "having",
+            "type": "String",
+            "description": "Having expression"
+          },
+          {
+            "in": "query",
+            "name": "fields",
+            "type": "String",
+            "description": "Comma seperated fields from the model"
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "description": "Page size limit",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "offset",
+            "description": "Pagination offset",
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "in": "query",
+            "name": "sort",
+            "description": "Comma seperated sort fields",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          },
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/cause1"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "cause1": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "type": "integer",
+          "nullable": false
+        },
+        "cause_id": {
+          "type": "integer"
+        },
+        "cause_name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
