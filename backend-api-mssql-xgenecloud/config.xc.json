@@ -1,0 +1,37 @@
+{
+  "title": "rest",
+  "apiClient": {
+    "data": []
+  },
+  "envs": {
+    "dev": {
+      "db": [
+        {
+          "client": "mssql",
+          "connection": {
+            "host": "localhost",
+            "port": 1433,
+            "user": "sa",
+            "password": "System@123",
+            "database": "Military"
+          },
+          "meta": {
+            "tableName": "_evolutions",
+            "dbAlias": "primary"
+          }
+        }
+      ],
+      "apiClient": {
+        "data": []
+      }
+    }
+  },
+  "workingEnv": "dev",
+  "meta": {
+    "version": "0.5",
+    "seedsFolder": "seeds",
+    "queriesFolder": "queries",
+    "apisFolder": "apis",
+    "projectType": "rest"
+  }
+}
